@@ -16,5 +16,6 @@
 # \subsubsection{Disable USB mass storage}
 
 class usb::mass_storage::no {
-    include "usb::mass_storage::no::${::osfamily}"
+    $lower_osfamily = downcase($::osfamily)
+    include "usb::mass_storage::no::${lower_osfamily}"
 }
