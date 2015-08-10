@@ -41,13 +41,11 @@ define usb::mass_storage::unallow_group() {
     }
                 }
 
-                /^5\..*/: {
-    unimplemented()
-                }
+                /^5\..*/: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
 
-                default: { unimplemented() }
+                default: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
             }
         }
-        default: { unimplemented() }
+        default: { fail "unimplemented on ${::osfamily}" }
     }
 }

@@ -27,7 +27,7 @@
 define usb::mass_storage::allow_group() {
     $group = $name
     case $osfamily {
-        RedHat: {
+        'RedHat': {
             case $operatingsystemrelease {
 
                 /^6\..*/: {
@@ -39,13 +39,11 @@ group-udisks.pkla"),
     }
                 }
 
-                /^5\..*/: {
-    unimplemented()
-                }
+                /^5\..*/: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
 
-                default: { unimplemented() }
+                default: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
             }
         }
-        default: { unimplemented() }
+        default: { fail "unimplemented on ${::osfamily}" }
     }
 }

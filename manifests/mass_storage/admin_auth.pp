@@ -24,7 +24,7 @@
 # slashing a swath of nonfunctionality through the desktop.)
 class usb::mass_storage::admin_auth {
     case $osfamily {
-        RedHat: {
+        'RedHat': {
             case $operatingsystemrelease {
 
                 /^6\..*/: {
@@ -36,13 +36,11 @@ admin-udisks.pkla",
     }
                 }
 
-                /^5\..*/: {
-    unimplemented()
-                }
+                /^5\..*/: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
 
-                default: { unimplemented() }
+                default: { fail "unimplemented on ${::osfamily} ${::operatingsystemrelease}" }
             }
         }
-        default: { unimplemented() }
+        default: { fail "unimplemented on ${::osfamily}" }
     }
 }
