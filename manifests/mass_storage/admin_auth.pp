@@ -30,7 +30,7 @@ class usb::mass_storage::admin_auth {
                 /^6\..*/: {
     file { "/etc/polkit-1/localauthority/90-mandatory.d/\
 50-mil.af.eglin.afseo.admin-udisks.pkla":
-        owner => root, group => 0, mode => 0600,
+        owner => root, group => 0, mode => '0600',
         source => "puppet:///modules/usb/mass_storage/\
 admin-udisks.pkla",
     }

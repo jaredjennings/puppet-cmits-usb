@@ -33,7 +33,7 @@ define usb::mass_storage::allow_group() {
                 /^6\..*/: {
     file { "/etc/polkit-1/localauthority/90-mandatory.d/\
 60-mil.af.eglin.afseo.group-${group}-udisks.pkla":
-        owner => root, group => 0, mode => 0600,
+        owner => root, group => 0, mode => '0600',
         content => template("usb/mass_storage/\
 group-udisks.pkla"),
     }
